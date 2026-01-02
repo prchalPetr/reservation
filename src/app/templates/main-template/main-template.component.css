@@ -1,0 +1,14 @@
+.layout {
+    display: grid;
+    grid-template-columns:  1fr 250px;
+
+    grid-template-areas:
+    "header header"
+    "content menu"
+    "footer footer"
+}
+
+app-header { grid-area: header; }
+app-side-menu { grid-area: menu; }
+ng-content { grid-area: content; }
+app-footer { grid-area: footer; }
