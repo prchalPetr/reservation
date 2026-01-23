@@ -1,15 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { Menu } from 'primeng/menu';
+import { ButtonModule } from 'primeng/button';
+
 
 @Component({
   selector: 'app-side-menu',
-  imports: [Menu],
+  imports: [Menu, ButtonModule ],
   templateUrl: './side-menu.component.html',
   styleUrl: './side-menu.component.css',
 })
 export class SideMenuComponent implements OnInit {
   menuItems: MenuItem[] | undefined;
+  isVisible = true;
 
   ngOnInit(): void {
     this.menuItems = [
@@ -40,5 +43,9 @@ export class SideMenuComponent implements OnInit {
         ],
       },
     ];
+  }
+
+  onClickShowButton(){
+    this.isVisible = !this.isVisible;
   }
 }

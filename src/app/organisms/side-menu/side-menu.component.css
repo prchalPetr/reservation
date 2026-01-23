@@ -1,6 +1,15 @@
 ::ng-deep .p-menu {
-    background: transparent;
-    border: none ;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+}
+::ng-deep .p-button {
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  ::ng-deep .p-menu {
     border-left: 1px solid #ccc;
-    border-radius: 0;
   }
+}

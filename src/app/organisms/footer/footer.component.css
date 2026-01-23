@@ -1,6 +1,15 @@
 .grid {
   display: inline-grid;
+  grid-template-columns: 1fr;
+  width: 100%;
+  justify-items: center;
+}
+
+@media (min-width: 768px) {
+  .grid {
+  display: inline-grid;
   grid-template-columns: auto auto auto;
   width: 100%;
   justify-items: center;
+}
 }
