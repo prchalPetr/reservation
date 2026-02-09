@@ -1,6 +1,8 @@
 <div class="layout">
-    <app-header />
-    <app-side-menu />
-    <ng-content />
-    <app-footer />
+  <app-header />
+  <app-side-menu />
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
+  <app-footer />
 </div>

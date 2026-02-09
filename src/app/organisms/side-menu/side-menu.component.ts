@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, output } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { Menu } from 'primeng/menu';
 import { ButtonModule } from 'primeng/button';
@@ -22,6 +22,7 @@ export class SideMenuComponent implements OnInit {
           {
             label: 'New reservation',
             icon: 'pi pi-plus',
+            routerLink: '/new-reservation',
           },
           {
             label: 'My reservations',

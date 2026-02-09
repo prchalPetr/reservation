@@ -1,5 +1,5 @@
 <div>
-    <p-button (onClick)="onClickShowButton()"><span class="pi" [class.pi-angle-down]="isVisible"
+    <p-button class="popup-button" (onClick)="onClickShowButton()"><span class="pi" [class.pi-angle-down]="isVisible"
             [class.pi-angle-up]="!isVisible"></span></p-button>
     <p-menu [model]="menuItems" [popup]="isVisible" />
 </div>

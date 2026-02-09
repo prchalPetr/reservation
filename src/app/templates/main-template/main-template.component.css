@@ -1,28 +1,35 @@
-app-header { grid-area: header; }
-app-side-menu { grid-area: menu; }
-ng-content { grid-area: content; }
-app-footer { grid-area: footer; }
+app-header {
+  grid-area: header;
+}
+app-side-menu {
+  grid-area: menu;
+}
+.content {
+  grid-area: content;
+}
+app-footer {
+  grid-area: footer;
+}
 
 .layout {
-    display: grid;
-    grid-template-columns:  1fr;
+  display: grid;
+  grid-template-columns: 1fr;
 
-    grid-template-areas:
+  grid-template-areas:
     "header"
     "menu"
     "content"
-    "footer"
+    "footer";
 }
-
 
 @media (min-width: 768px) {
   .layout {
     display: grid;
-    grid-template-columns:  1fr 250px;
+    grid-template-columns: 1fr 250px;
 
     grid-template-areas:
-    "header header"
-    "content menu"
-    "footer footer"
-}
+      "header header"
+      "content menu"
+      "footer footer";
+  }
 }

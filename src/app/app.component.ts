@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { MainPageComponent } from "./pages/main-page/main-page.component";
+import { MainTemplateComponent } from "./templates/main-template/main-template.component";
+
 
 @Component({
   selector: 'app-root',
-  imports: [MainPageComponent],
+  imports: [MainTemplateComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

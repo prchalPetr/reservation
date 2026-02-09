@@ -12,4 +12,8 @@
   ::ng-deep .p-menu {
     border-left: 1px solid #ccc;
   }
+
+  .popup-button {
+    display: none;
+  }
 }

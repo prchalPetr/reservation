@@ -7,9 +7,12 @@
 
 @media (min-width: 768px) {
   .grid {
-  display: inline-grid;
-  grid-template-columns: auto auto auto;
-  width: 100%;
-  justify-items: center;
-}
+    display: inline-grid;
+    grid-template-columns: auto auto auto;
+    width: 100%;
+    justify-items: center;
+  }
+  p-card {
+    margin-top: 1rem;
+  }
 }

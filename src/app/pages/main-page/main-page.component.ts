@@ -1,12 +1,9 @@
 import { Component } from '@angular/core';
-import { MainTemplateComponent } from "../../templates/main-template/main-template.component";
 
 @Component({
   selector: 'app-main-page',
-  imports: [MainTemplateComponent],
+  imports: [],
   templateUrl: './main-page.component.html',
-  styleUrl: './main-page.component.css'
+  styleUrl: './main-page.component.css',
 })
-export class MainPageComponent {
-
-}
+export class MainPageComponent {}
