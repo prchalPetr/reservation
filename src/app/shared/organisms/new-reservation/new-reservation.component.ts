@@ -3,12 +3,17 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { DatePickerModule } from 'primeng/datepicker';
 import { IftaLabelModule } from 'primeng/iftalabel';
 import { InputTextModule } from 'primeng/inputtext';
-
-
+import { IftaDatepickerComponent } from '../../molecules/ifta-datepicker/ifta-datepicker.component';
 
 @Component({
   selector: 'app-new-reservation',
-  imports: [DatePickerModule, ReactiveFormsModule, IftaLabelModule, InputTextModule],
+  imports: [
+    DatePickerModule,
+    ReactiveFormsModule,
+    IftaLabelModule,
+    InputTextModule,
+    IftaDatepickerComponent,
+  ],
   templateUrl: './new-reservation.component.html',
   styleUrl: './new-reservation.component.css',
 })
@@ -18,6 +23,10 @@ export class NewReservationComponent {
     startDateTime: new FormControl(''),
     specialRequests: new FormControl(''),
   });
+
+  get startDateTimeControl(): FormControl {
+    return this.reservationForm.get('startDateTime') as FormControl;
+  }
 
   onSubmit() {
     console.log(this.reservationForm.value);
