@@ -1,0 +1,21 @@
+<div>
+  <form [formGroup]="reservationForm" (ngSubmit)="onSubmit()">
+    <span>All required fields are markup by *</span>
+    <p-iftalabel>
+        <input pInputText id="username" formControlName="username" autocomplete="off" />
+        <label for="username">Username</label>
+    </p-iftalabel>
+
+    <p-iftalabel>
+      <p-datepicker
+        id="username"
+        formControlName="startDateTime"
+        [showTime]="true"
+        dateFormat="dd.mm.yy"
+      ></p-datepicker>
+      <label for="startDateTime">Date*</label>
+    </p-iftalabel>
+
+    <button type="submit">Submit</button>
+  </form>
+</div>
