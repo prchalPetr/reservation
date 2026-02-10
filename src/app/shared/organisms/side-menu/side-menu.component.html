@@ -1,0 +1,12 @@
+<div>
+  <p-button class="popup-button" (onClick)="onClickShowButton()"
+    ><span
+      class="pi"
+      [class.pi-angle-down]="isVisible"
+      [class.pi-angle-up]="!isVisible"
+    ></span
+  ></p-button>
+  @if (isVisible) {
+  <p-menu [model]="menuItems" />
+  }
+</div>

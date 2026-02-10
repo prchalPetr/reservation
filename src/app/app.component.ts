@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { MainTemplateComponent } from "./templates/main-template/main-template.component";
+import { MainTemplateComponent } from './shared/templates/main-template/main-template.component';
+
 
 
 @Component({
