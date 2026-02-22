@@ -1,9 +1,9 @@
 <div>
-    <p-iftalabel>
-        <p-datepicker
-          [formControl]="control()"
-          [showTime]="showTime()"
-        ></p-datepicker>
-        <label [for]="control()">{{labelText()}}</label>
-      </p-iftalabel>
+  <p-iftalabel>
+    <p-datepicker
+      [formControl]="control()"
+      [dateFormat]="format()"
+    ></p-datepicker>
+    <label [for]="control()">{{ labelText() }}</label>
+  </p-iftalabel>
 </div>

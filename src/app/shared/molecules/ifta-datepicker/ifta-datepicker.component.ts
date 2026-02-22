@@ -12,5 +12,5 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
 export class IftaDatepickerComponent {
   control = input.required<FormControl>();
   labelText = input.required<string>();
-  showTime = input<boolean>(false);
+  format = input<string>('dd.mm.yy HH:mm');
 }

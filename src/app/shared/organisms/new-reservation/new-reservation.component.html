@@ -1,21 +1,27 @@
 <div>
   <form [formGroup]="reservationForm" (ngSubmit)="onSubmit()">
     <span>All required fields are markup by *</span>
-    <p-iftalabel>
-      <input
-        pInputText
-        id="username"
-        formControlName="username"
-        autocomplete="off"
-      />
-      <label for="username">Username *</label>
-    </p-iftalabel>
+    <app-ifta-inputtext
+      [control]="usernameControl"
+      labelText="Name: *"
+    ></app-ifta-inputtext>
+    <app-ifta-inputnumber
+      [control]="durationControl"
+      labelText="Duration: *"
+      [min]="30"
+      [step]="30"
+      [showButtons]="true"
+      suffix=" min."
+    ></app-ifta-inputnumber>
 
-    <app-ifta-datepicker
-      [control]="startDateTimeControl"
-      labelText="Start date and time *"
-      [showTime]="true"
-    ></app-ifta-datepicker>
+    <div>
+      <app-ifta-datepicker
+        [control]="startDateControl"
+        labelText="Start date *"
+        format="dd.mm.yy"
+      ></app-ifta-datepicker>
+     <!--popover here-->
+    </div>
 
     <button type="submit">Submit</button>
   </form>

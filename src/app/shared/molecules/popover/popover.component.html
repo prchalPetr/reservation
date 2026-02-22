@@ -1,0 +1,22 @@
+<div>
+  <p-button
+    type="button"
+    [label]="selectedOption ? selectedOption.label : label()"
+    (onClick)="toggle($event, op)"
+    styleClass="min-w-48"
+  />
+  <p-popover #op>
+    <div class="flex flex-col gap-4">
+      <div>
+        <span>{{ optionsHeader() }}</span>
+        <ul class="list-none p-0 m-0 flex flex-col">
+          @for (item of options(); track $index) {
+          <li (click)="select(item, op)">
+            <span>{{ item.label }}</span>
+          </li>
+        }
+        </ul>
+      </div>
+    </div>
+  </p-popover>
+</div>
