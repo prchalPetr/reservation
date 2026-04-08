@@ -6,6 +6,9 @@ import { IftaDatepickerComponent } from '../../molecules/ifta-datepicker/ifta-da
 import { NewReservationService } from '../../service/new-reservation.service';
 import { IftaInputnumberComponent } from '../../molecules/ifta-inputnumber/ifta-inputnumber.component';
 import { IftaInputtextComponent } from '../../molecules/ifta-inputtext/ifta-inputtext.component';
+import { PopoverComponent } from "../../molecules/popover/popover.component";
+import { ReservationRepoService } from '../../repository/reservation-repo.service';
+import { IPopoverOption } from '../../molecules/popover/popover.model';
 
 @Component({
   selector: 'app-new-reservation',
@@ -15,13 +18,15 @@ import { IftaInputtextComponent } from '../../molecules/ifta-inputtext/ifta-inpu
     IftaDatepickerComponent,
     IftaInputnumberComponent,
     IftaInputtextComponent,
-  ],
+    PopoverComponent
+],
   templateUrl: './new-reservation.component.html',
   styleUrl: './new-reservation.component.css',
 })
 export class NewReservationComponent {
   // Injecting service
   private readonly newReservationService = inject(NewReservationService);
+  private readonly reservationRepo = inject(ReservationRepoService);
 
   reservationForm: FormGroup = this.newReservationService.reservationFormGroup;
 
@@ -49,6 +54,13 @@ export class NewReservationComponent {
 
   get startTimeControl(): FormControl {
     return this.newReservationService.startTimeControl;
+  }
+
+  get possibleTimes(): IPopoverOption[] {
+    return this.reservationRepo.possibleReservationTimes.map(time => ({
+      label: time,
+      value: time
+    }));
   }
 
   onSubmit() {

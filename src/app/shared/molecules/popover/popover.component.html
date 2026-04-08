@@ -1,4 +1,4 @@
-<div>
+<div class="popover-container">
   <p-button
     type="button"
     [label]="selectedOption ? selectedOption.label : label()"
@@ -6,17 +6,17 @@
     styleClass="min-w-48"
   />
   <p-popover #op>
-    <div class="flex flex-col gap-4">
-      <div>
-        <span>{{ optionsHeader() }}</span>
-        <ul class="list-none p-0 m-0 flex flex-col">
-          @for (item of options(); track $index) {
-          <li (click)="select(item, op)">
-            <span>{{ item.label }}</span>
-          </li>
-        }
-        </ul>
-      </div>
+    <span>{{ optionsHeader() }}</span>
+    <div class="popover-body">
+      
+
+      @for (item of options(); track $index) {
+
+      <button pButton (click)="select(item, op)">
+        <span>{{ item.label }}</span>
+      </button>
+
+      }
     </div>
   </p-popover>
 </div>

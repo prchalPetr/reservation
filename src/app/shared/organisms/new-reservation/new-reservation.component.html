@@ -14,15 +14,13 @@
       suffix=" min."
     ></app-ifta-inputnumber>
 
-    <div>
-      <app-ifta-datepicker
-        [control]="startDateControl"
-        labelText="Start date *"
-        format="dd.mm.yy"
-      ></app-ifta-datepicker>
-     <!--popover here-->
-    </div>
+    <app-ifta-datepicker
+      [control]="startDateControl"
+      labelText="Start date *"
+      format="dd.mm.yy"
+    ></app-ifta-datepicker>
 
+    <app-popover [options]="possibleTimes" label="Choose time"></app-popover>
     <button type="submit">Submit</button>
   </form>
 </div>
