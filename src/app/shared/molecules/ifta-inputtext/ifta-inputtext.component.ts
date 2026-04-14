@@ -7,7 +7,7 @@ import { InputTextModule } from 'primeng/inputtext';
   selector: 'app-ifta-inputtext',
   imports: [ReactiveFormsModule, IftaLabelModule, InputTextModule],
   templateUrl: './ifta-inputtext.component.html',
-  styleUrl: './ifta-inputtext.component.css'
+  styleUrl: './ifta-inputtext.component.scss'
 })
 export class IftaInputtextComponent {
   control = input.required<FormControl>();

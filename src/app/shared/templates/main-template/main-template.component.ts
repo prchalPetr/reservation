@@ -9,7 +9,7 @@ import { FooterComponent } from '../../organisms/footer/footer.component';
   selector: 'app-main-template',
   imports: [HeaderComponent, SideMenuComponent, FooterComponent, RouterOutlet],
   templateUrl: './main-template.component.html',
-  styleUrl: './main-template.component.css'
+  styleUrl: './main-template.component.scss'
 })
 export class MainTemplateComponent {
 

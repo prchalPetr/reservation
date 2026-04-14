@@ -1,26 +1,33 @@
 <div>
-  <form [formGroup]="reservationForm" (ngSubmit)="onSubmit()">
-    <span>All required fields are markup by *</span>
-    <app-ifta-inputtext
-      [control]="usernameControl"
-      labelText="Name: *"
-    ></app-ifta-inputtext>
-    <app-ifta-inputnumber
-      [control]="durationControl"
-      labelText="Duration: *"
-      [min]="30"
-      [step]="30"
-      [showButtons]="true"
-      suffix=" min."
-    ></app-ifta-inputnumber>
+  <form [formGroup]="reservationForm" (ngSubmit)="onSubmit()" class="new-reservation-layout">
+    <div>
+      <p-card class="left-side">
+        <span>All required fields are markup by *</span>
+        <app-ifta-inputtext [control]="usernameControl" labelText="Name: *"></app-ifta-inputtext>
+        <app-ifta-inputnumber
+          [control]="durationControl"
+          labelText="Duration: *"
+          [min]="30"
+          [step]="30"
+          [showButtons]="true"
+          suffix=" min."
+        ></app-ifta-inputnumber>
 
-    <app-ifta-datepicker
-      [control]="startDateControl"
-      labelText="Start date *"
-      format="dd.mm.yy"
-    ></app-ifta-datepicker>
+        <app-ifta-datepicker
+          [control]="startDateControl"
+          labelText="Start date *"
+          format="dd.mm.yy"
+        ></app-ifta-datepicker>
 
-    <app-popover [options]="possibleTimes" label="Choose time"></app-popover>
-    <button type="submit">Submit</button>
+        <button type="submit">Submit</button>
+      </p-card>
+    </div>
+    <div class="right-side">
+      <app-buttons-box
+        [buttons]="possibleTimesButtons"
+        emptyMessage="Enter the details on the left to search for dates."
+        emptyIcon="pi pi-calendar-clock"
+      ></app-buttons-box>
+    </div>
   </form>
 </div>

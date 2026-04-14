@@ -7,7 +7,7 @@ import { InputNumberModule } from 'primeng/inputnumber';
   selector: 'app-ifta-inputnumber',
   imports: [IftaLabelModule, InputNumberModule, ReactiveFormsModule],
   templateUrl: './ifta-inputnumber.component.html',
-  styleUrl: './ifta-inputnumber.component.css'
+  styleUrl: './ifta-inputnumber.component.scss'
 })
 export class IftaInputnumberComponent {
   control = input.required<FormControl>();

@@ -7,7 +7,7 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
   selector: 'app-ifta-datepicker',
   imports: [IftaLabelModule, DatePickerModule, ReactiveFormsModule],
   templateUrl: './ifta-datepicker.component.html',
-  styleUrl: './ifta-datepicker.component.css'
+  styleUrl: './ifta-datepicker.component.scss'
 })
 export class IftaDatepickerComponent {
   control = input.required<FormControl>();

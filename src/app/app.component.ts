@@ -7,7 +7,7 @@ import { MainTemplateComponent } from './shared/templates/main-template/main-tem
   selector: 'app-root',
   imports: [MainTemplateComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.scss'
 })
 export class AppComponent {
   title = 'reservation';

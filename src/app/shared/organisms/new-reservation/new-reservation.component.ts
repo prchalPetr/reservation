@@ -1,27 +1,28 @@
 import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { CardModule } from 'primeng/card';
 import { DatePickerModule } from 'primeng/datepicker';
 
 import { IftaDatepickerComponent } from '../../molecules/ifta-datepicker/ifta-datepicker.component';
 import { NewReservationService } from '../../service/new-reservation.service';
 import { IftaInputnumberComponent } from '../../molecules/ifta-inputnumber/ifta-inputnumber.component';
 import { IftaInputtextComponent } from '../../molecules/ifta-inputtext/ifta-inputtext.component';
-import { PopoverComponent } from "../../molecules/popover/popover.component";
 import { ReservationRepoService } from '../../repository/reservation-repo.service';
-import { IPopoverOption } from '../../molecules/popover/popover.model';
+import { ButtonsBoxComponent } from "../../molecules/buttons-box/buttons-box.component";
 
 @Component({
   selector: 'app-new-reservation',
   imports: [
+    CardModule,
     DatePickerModule,
     ReactiveFormsModule,
     IftaDatepickerComponent,
     IftaInputnumberComponent,
     IftaInputtextComponent,
-    PopoverComponent
+    ButtonsBoxComponent
 ],
   templateUrl: './new-reservation.component.html',
-  styleUrl: './new-reservation.component.css',
+  styleUrl: './new-reservation.component.scss',
 })
 export class NewReservationComponent {
   // Injecting service
@@ -29,6 +30,7 @@ export class NewReservationComponent {
   private readonly reservationRepo = inject(ReservationRepoService);
 
   reservationForm: FormGroup = this.newReservationService.reservationFormGroup;
+  possibleTimesButtons = [];
 
   minDate: Date = new Date();
   maxDate: Date = new Date();
@@ -54,13 +56,6 @@ export class NewReservationComponent {
 
   get startTimeControl(): FormControl {
     return this.newReservationService.startTimeControl;
-  }
-
-  get possibleTimes(): IPopoverOption[] {
-    return this.reservationRepo.possibleReservationTimes.map(time => ({
-      label: time,
-      value: time
-    }));
   }
 
   onSubmit() {

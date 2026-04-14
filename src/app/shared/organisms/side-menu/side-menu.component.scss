@@ -1,0 +1,19 @@
+.side-menu-layout {
+  height: 100%;
+}
+::ng-deep {
+  .p-button {
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+
+  .p-menu {
+    height: 100%;
+  }
+}
+
+@media (min-width: 768px) {
+  .popup-button {
+    display: none;
+  }
+}

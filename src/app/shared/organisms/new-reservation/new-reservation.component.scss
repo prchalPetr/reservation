@@ -1,0 +1,17 @@
+.new-reservation-layout {
+    display: grid;
+    grid-template-columns: 30% auto;
+    gap: 0.5rem;
+    .right-side {
+        margin-right: 0.5rem;
+    }
+}
+
+::ng-deep {
+    .p-card-content {
+        display: grid;
+        gap: 0.5rem;
+    }
+}
+
+

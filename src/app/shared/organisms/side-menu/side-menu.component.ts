@@ -8,7 +8,7 @@ import { ButtonModule } from 'primeng/button';
   selector: 'app-side-menu',
   imports: [Menu, ButtonModule ],
   templateUrl: './side-menu.component.html',
-  styleUrl: './side-menu.component.css',
+  styleUrl: './side-menu.component.scss',
 })
 export class SideMenuComponent implements OnInit {
   menuItems: MenuItem[] | undefined;

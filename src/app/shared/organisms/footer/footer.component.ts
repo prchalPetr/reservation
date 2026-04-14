@@ -5,7 +5,7 @@ import { CardModule } from 'primeng/card';
   selector: 'app-footer',
   imports: [CardModule],
   templateUrl: './footer.component.html',
-  styleUrl: './footer.component.css'
+  styleUrl: './footer.component.scss'
 })
 export class FooterComponent {
 

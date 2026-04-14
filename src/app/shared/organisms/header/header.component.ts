@@ -5,6 +5,6 @@ import { Card } from "primeng/card";
   selector: 'app-header',
   imports: [Card],
   templateUrl: './header.component.html',
-  styleUrl: './header.component.css',
+  styleUrl: './header.component.scss',
 })
 export class HeaderComponent {}

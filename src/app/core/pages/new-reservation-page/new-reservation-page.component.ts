@@ -5,7 +5,7 @@ import { NewReservationComponent } from "../../../shared/organisms/new-reservati
   selector: 'app-new-reservation-page',
   imports: [NewReservationComponent],
   templateUrl: './new-reservation-page.component.html',
-  styleUrl: './new-reservation-page.component.css'
+  styleUrl: './new-reservation-page.component.scss'
 })
 export class NewReservationPageComponent {
 
