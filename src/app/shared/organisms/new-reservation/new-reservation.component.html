@@ -24,9 +24,10 @@
     </div>
     <div class="right-side">
       <app-buttons-box
-        [buttons]="possibleTimesButtons"
+        [buttons]="possibleTimesButtons()"
         emptyMessage="Enter the details on the left to search for dates."
         emptyIcon="pi pi-calendar-clock"
+        [control]="startTimeControl"
       ></app-buttons-box>
     </div>
   </form>

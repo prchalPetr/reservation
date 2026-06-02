@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { CardModule } from 'primeng/card';
 import { DatePickerModule } from 'primeng/datepicker';
@@ -8,7 +8,9 @@ import { NewReservationService } from '../../service/new-reservation.service';
 import { IftaInputnumberComponent } from '../../molecules/ifta-inputnumber/ifta-inputnumber.component';
 import { IftaInputtextComponent } from '../../molecules/ifta-inputtext/ifta-inputtext.component';
 import { ReservationRepoService } from '../../repository/reservation-repo.service';
-import { ButtonsBoxComponent } from "../../molecules/buttons-box/buttons-box.component";
+import { ButtonsBoxComponent } from '../../molecules/buttons-box/buttons-box.component';
+import { toSignal } from '@angular/core/rxjs-interop';
+import { convertTimeToMinutes, createTimeFromMinutes } from '../../utils/time.utils';
 
 @Component({
   selector: 'app-new-reservation',
@@ -19,8 +21,8 @@ import { ButtonsBoxComponent } from "../../molecules/buttons-box/buttons-box.com
     IftaDatepickerComponent,
     IftaInputnumberComponent,
     IftaInputtextComponent,
-    ButtonsBoxComponent
-],
+    ButtonsBoxComponent,
+  ],
   templateUrl: './new-reservation.component.html',
   styleUrl: './new-reservation.component.scss',
 })
@@ -29,8 +31,18 @@ export class NewReservationComponent {
   private readonly newReservationService = inject(NewReservationService);
   private readonly reservationRepo = inject(ReservationRepoService);
 
+  // Change detection
+  private durationChange = toSignal(this.durationControl.valueChanges);
+
   reservationForm: FormGroup = this.newReservationService.reservationFormGroup;
-  possibleTimesButtons = [];
+  possibleTimesButtons = computed(() => {
+    this.durationChange();
+    const duration = this.durationControl.value;
+
+    return this.reservationRepo
+      .getPossibleReservationTimes(duration)
+      .map(time => ({ label: time + ' - ' + createTimeFromMinutes(convertTimeToMinutes(time) + duration), value: time }));
+  });
 
   minDate: Date = new Date();
   maxDate: Date = new Date();

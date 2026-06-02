@@ -3,7 +3,7 @@
   .p-card {
     height: 100%;
 
-    .buttons-container {
+    .buttons-container-empty {
       height: 100%;
       display: flex;
       justify-content: center;
@@ -28,6 +28,16 @@
       height: 100%;
       .p-card-content {
         height: 100%;
+        .p-selectbutton {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 0.5rem;
+          .p-togglebutton {
+            border: 0;
+            padding: 0;
+            border-radius: var(--p-togglebutton-content-border-radius);
+          }
+        }
       }
     }
   }

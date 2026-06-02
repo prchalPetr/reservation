@@ -1,16 +1,21 @@
 <div class="buttons-box-layout">
   <p-card>
     <span>Possible times for current date:</span>
-    <div class="buttons-container">
-      @for (btnItem of buttons(); track $index) {
-      <p-button [label]="btnItem.label" [disabled]="btnItem.disabled ?? false" />
-      } @empty {
-      <div class="empty-state">
-        @if (emptyIcon()) {
-        <span [class]="emptyIcon()" class="empty-icon"></span>
-        }
-        <span>{{ emptyMessage() }}</span>
-      </div>
+    <div [class]="buttons() ? 'buttons-container' : 'buttons-container-empty'">
+      @if (buttons()) {
+        <p-selectbutton
+          [options]="buttons()"
+          [formControl]="control()"
+          optionLabel="label"
+          optionValue="label"
+        />
+      } @else {
+        <div class="empty-state">
+          @if (emptyIcon()) {
+            <span [class]="emptyIcon()" class="empty-icon"></span>
+          }
+          <span>{{ emptyMessage() }}</span>
+        </div>
       }
     </div>
   </p-card>
