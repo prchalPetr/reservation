@@ -1,10 +1,15 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { formatDate } from '@angular/common';
+import { Reservation } from '../repository/reservation.model';
+import { ReservationRepoService } from '../repository/reservation-repo.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class NewReservationService {
+  private repo = inject(ReservationRepoService);
+
   private reservationForm: FormGroup;
 
   constructor() {
@@ -16,7 +21,7 @@ export class NewReservationService {
         date: new FormControl(new Date(), Validators.required),
         time: new FormControl('', Validators.required)
       }),
-      specialRequests: new FormControl(''),
+      notes: new FormControl(''),
     });
   }
 
@@ -38,5 +43,25 @@ export class NewReservationService {
   
   get durationControl(): FormControl {
     return this.reservationForm.get('duration') as FormControl;
+  }
+
+  get notes(): FormControl {
+    return this.reservationForm.get('notes') as FormControl;
+  }
+
+  get isFormValid(): boolean {
+    return this.reservationForm.valid;
+  }
+
+  onSubmit() {
+    const newReservation: Reservation = {
+      username: this.usernameControl.value,
+      duration: this.durationControl.value,
+      startDate: formatDate(this.startDateControl.value, 'dd.MM.yyyy', 'cs-CZ'),
+      startTime: this.startTimeControl.value,
+      notes: this.notes.value
+    }
+
+    this.repo.addReservation(newReservation);
   }
 }

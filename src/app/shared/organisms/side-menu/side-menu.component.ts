@@ -44,11 +44,9 @@ export class SideMenuComponent implements OnInit {
         ],
       },
     ];
-    console.log(this.isVisible)
   }
 
   onClickShowButton(){
-    console.log(this.isVisible)
     this.isVisible = !this.isVisible;
   }
 }

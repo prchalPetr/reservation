@@ -2,6 +2,8 @@ import { Component, input } from '@angular/core';
 import { IftaLabelModule } from "primeng/iftalabel";
 import { DatePickerModule } from "primeng/datepicker";
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { DatePipe } from '@angular/common';
+
 
 @Component({
   selector: 'app-ifta-datepicker',

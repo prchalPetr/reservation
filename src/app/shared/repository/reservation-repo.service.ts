@@ -10,6 +10,7 @@ This service simulate backend repository for reservation. It will be used to sto
   providedIn: 'root',
 })
 export class ReservationRepoService {
+  private id = 0;
   private allFreeTimes: string[] = [
     '08:00',
     '08:30',
@@ -40,12 +41,14 @@ export class ReservationRepoService {
   ];
   private reservations: Reservation[] = [];
 
-  get allDeservations(): Reservation[] {
+  get allReservations(): Reservation[] {
     return this.reservations;
   }
 
   addReservation(reservation: Reservation): void {
+    reservation.id = this.id++;
     this.reservations.push(reservation);
+    console.log(this.allReservations);
   }
 
   getPossibleReservationTimes(duration: number): string[] {

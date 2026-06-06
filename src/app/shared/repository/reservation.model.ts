@@ -1,7 +1,8 @@
 export interface Reservation {
     id?: number;
-    userName: string;
-    date: string;
+    username: string;
+    startDate: string;
+    startTime: string;
     duration: number; // in minutes
-    specialRequests?: string;
+    notes?: string;
 }

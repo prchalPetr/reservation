@@ -2,6 +2,7 @@ import { Component, computed, inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { CardModule } from 'primeng/card';
 import { DatePickerModule } from 'primeng/datepicker';
+import { ButtonModule } from 'primeng/button';
 
 import { IftaDatepickerComponent } from '../../molecules/ifta-datepicker/ifta-datepicker.component';
 import { NewReservationService } from '../../service/new-reservation.service';
@@ -15,6 +16,7 @@ import { convertTimeToMinutes, createTimeFromMinutes } from '../../utils/time.ut
 @Component({
   selector: 'app-new-reservation',
   imports: [
+    ButtonModule,
     CardModule,
     DatePickerModule,
     ReactiveFormsModule,
@@ -70,7 +72,15 @@ export class NewReservationComponent {
     return this.newReservationService.startTimeControl;
   }
 
+  get notesControl(): FormControl {
+    return this.newReservationService.notes;
+  }
+
+  get isFormValid(): boolean {
+    return this.newReservationService.isFormValid;
+  }
+
   onSubmit() {
-    console.log(this.reservationForm.value);
+    this.newReservationService.onSubmit();
   }
 }

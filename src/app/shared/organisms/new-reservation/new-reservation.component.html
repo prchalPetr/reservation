@@ -19,7 +19,9 @@
           format="dd.mm.yy"
         ></app-ifta-datepicker>
 
-        <button type="submit">Submit</button>
+        <app-ifta-inputtext [control]="notesControl" labelText="Notes: "></app-ifta-inputtext>
+
+        <p-button type="submit" [disabled]="!isFormValid">Submit</p-button>
       </p-card>
     </div>
     <div class="right-side">
